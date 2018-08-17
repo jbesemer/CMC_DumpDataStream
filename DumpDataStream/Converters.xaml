@@ -1,0 +1,21 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:Shared="clr-namespace:SharedLibrary;assembly=SharedLibrary">
+
+	<!-- Constants and Binding Converters -->
+	
+	<System:Boolean x:Key="True">True</System:Boolean>
+	<System:Boolean x:Key="False">False</System:Boolean>
+	<!-- 
+	http://stackoverflow.com/questions/4997446/boolean-commandparameter-in-xaml
+	https://msdn.microsoft.com/en-us/library/ee792002(v=vs.110).aspx
+	-->
+
+	<Shared:BooleanInverter x:Key="BooleanInverter" />
+	<Shared:VisibleIfTrue x:Key="VisibleIfTrue" />
+	<Shared:VisibleIfFalse x:Key="VisibleIfFalse" />
+	<Shared:EnumToBooleanConverter x:Key="EnumToBooleanConverter"/>
+	
+</ResourceDictionary>

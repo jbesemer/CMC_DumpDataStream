@@ -1,0 +1,190 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Base Styles 
+	https://stackoverflow.com/questions/2137990/wpf-how-do-i-discard-all-inherited-styles
+	https://stackoverflow.com/questions/11326093/prevent-controls-in-controltemplate-inheriting-global-styles-wpf?rq=1
+	-->
+
+	<Style x:Key="EmptyStyle"/>
+	
+	<Style x:Key="DefaultButtonStyle" 
+		TargetType="{x:Type Button}" 
+		BasedOn="{StaticResource {x:Type Button}}"/>
+
+	<!-- Text Styles -->
+
+	<Style x:Key="TextStyle">
+		<!--
+		<Setter Property="Control.FontFamily" Value="Comic Sans MS" />
+		-->
+		<Setter Property="Control.FontSize" Value="12" />
+		<Setter Property="Control.FontWeight" Value="Normal" />
+		<Setter Property="Control.FontStyle" Value="Normal" />
+		<Setter Property="FrameworkElement.Margin" Value="2" />
+	</Style>
+
+	<Style x:Key="LabelStyle" BasedOn="{StaticResource TextStyle}" >
+		<Setter Property="Control.FontWeight" Value="Normal" />
+		<Setter Property="Control.FontStyle" Value="Italic" />
+	</Style>
+
+	<Style x:Key="TextBlockStyle" BasedOn="{StaticResource LabelStyle}" >
+		<Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+	</Style>
+
+	<Style x:Key="TextBoxStyle" BasedOn="{StaticResource TextStyle}" >
+		<Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+	</Style>
+
+	<Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}" />
+
+	<Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}" />
+
+	<Style x:Key="HeaderStyle" BasedOn="{StaticResource TextStyle}" >
+		<Setter Property="Control.FontWeight" Value="Bold" />
+		<Setter Property="Control.FontStyle" Value="Italic" />
+		<Setter Property="Control.FontSize" Value="14" />
+		<Setter Property="FrameworkElement.Margin" Value="4,6" />
+	</Style>
+
+	<!-- Control Styles -->
+
+	<Style x:Key="ComboBoxStyle" BasedOn="{StaticResource LabelStyle}" >
+		<Setter Property="FrameworkElement.Height" Value="25" />
+		<Setter Property="FrameworkElement.Margin" Value="4,6" />
+		<Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+	</Style>
+
+	<Style TargetType="ComboBox" BasedOn="{StaticResource ComboBoxStyle}" />
+
+	<Style x:Key="ButtonStyle" BasedOn="{StaticResource HeaderStyle}" >
+		<Setter Property="Control.HorizontalAlignment" Value="Center" />
+		<Setter Property="Control.FontWeight" Value="Bold" />
+		<Setter Property="FrameworkElement.Margin" Value="6,6"/>
+		<Setter Property="Control.Padding" Value="4,2"/>
+	</Style>
+
+	<Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}" />
+	<!--
+	-->
+
+	<Style x:Key="CertificateButtonStyle" BasedOn="{StaticResource ButtonStyle}" >
+		<Setter Property="FrameworkElement.MinWidth" Value="150"/>
+	</Style>
+
+	<Style x:Key="DBM_ButtonStyle" BasedOn="{StaticResource ButtonStyle}" >
+		<Setter Property="FrameworkElement.MinWidth" Value="100"/>
+		<Setter Property="FrameworkElement.Margin" Value="8,6"/>
+		<Setter Property="Control.Padding" Value="4,8"/>
+	</Style>
+
+	<Style x:Key="KeyFilenameStyle" BasedOn="{StaticResource LabelStyle}">
+		<Setter Property="Control.FontSize" Value="12" />
+		<Setter Property="Control.FontStyle" Value="Italic" />
+		<Setter Property="Control.FontWeight" Value="Normal" />
+
+		<Setter Property="FrameworkElement.HorizontalAlignment" Value="Stretch" />
+		<Setter Property="FrameworkElement.Margin" Value="5,8,5,5" />
+		<Setter Property="FrameworkElement.MinWidth" Value="100" />
+	</Style>
+
+	<Style x:Key="KeyValueStyle" BasedOn="{StaticResource LabelStyle}">
+		<Setter Property="Control.FontSize" Value="12" />
+		<Setter Property="Control.FontStyle" Value="Normal" />
+		<Setter Property="Control.FontWeight" Value="Normal" />
+
+		<Setter Property="TextBoxBase.HorizontalScrollBarVisibility" Value="Auto" />
+		<Setter Property="TextBoxBase.VerticalScrollBarVisibility" Value="Auto" />
+		<Setter Property="TextBox.TextWrapping" Value="NoWrap" />
+
+		<Setter Property="FrameworkElement.HorizontalAlignment" Value="Stretch" />
+		<Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch" />
+		<Setter Property="FrameworkElement.Margin" Value="5,8,5,5" />
+	</Style>
+
+	<Style x:Key="BorderStyle" BasedOn="{StaticResource HeaderStyle}" >
+		<Setter Property="Border.BorderThickness" Value="2" />
+		<Setter Property="Border.BorderBrush" Value="LightGray" />
+		<Setter Property="FrameworkElement.Margin" Value="4,0" />
+	</Style>
+
+	<Style TargetType="Border" BasedOn="{StaticResource BorderStyle}" />
+
+	<Style x:Key="GroupBoxStyle" BasedOn="{StaticResource HeaderStyle}" >
+		<Setter Property="Border.BorderThickness" Value="2" />
+		<Setter Property="Border.BorderBrush" Value="Gray" />
+		<Setter Property="Border.CornerRadius" Value="6" />
+		<Setter Property="FrameworkElement.Margin" Value="6,2" />
+	</Style>
+
+	<Style x:Key="GroupBoxHFillStyle" BasedOn="{StaticResource GroupBoxStyle}" >
+		<Setter Property="FrameworkElement.HorizontalAlignment" Value="Stretch" />
+	</Style>
+
+	<Style TargetType="GroupBox" BasedOn="{StaticResource GroupBoxStyle}" />
+
+	<!-- Container Styles -->
+
+	<Style x:Key="StretchHorizontalAndVertical">
+		<Setter Property="Control.VerticalAlignment" Value="Stretch" />
+		<Setter Property="Control.HorizontalAlignment" Value="Stretch" />
+		<Setter Property="FrameworkElement.HorizontalAlignment" Value="Stretch" />
+		<Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch" />
+	</Style>
+
+	<Style x:Key="TabControlStyle" BasedOn="{StaticResource StretchHorizontalAndVertical}" >
+	</Style>
+
+	<Style TargetType="TabControl" BasedOn="{StaticResource TabControlStyle}"/>
+
+	<Style x:Key="TabItemStyle"  BasedOn="{StaticResource StretchHorizontalAndVertical}" >
+	</Style>
+
+	<Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle}"/>
+
+	<!-- Grid Splitter styles -->
+	<!-- 
+	https://stackoverflow.com/questions/1665781/styling-gridsplitter-wpf-c-sharp 
+	https://wpf.2000things.com/2011/12/30/462-drawing-a-better-looking-gridsplitter/
+	-->
+	<Style x:Key="GridSplitterPreviewStyle" >
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Rectangle Fill="#80000000"/>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="GridSplitterStyle" TargetType="{x:Type GridSplitter}">
+		<Setter Property="Background"
+				Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+		<Setter Property="PreviewStyle" Value="{StaticResource GridSplitterPreviewStyle}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type GridSplitter}">
+					<Border BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							CornerRadius="2">
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- override Style.xaml for DatePicker usage -->
+	<Style x:Key="DatePickerStyle" >
+		<Setter Property="Control.Width" Value="100" />
+		<Setter Property="Control.VerticalAlignment" Value="Center" />
+		<Setter Property="Control.HorizontalAlignment" Value="Left" />
+		<Setter Property="DatePicker.SelectedDateFormat" Value="Short" />
+		<!-- FML: These next 3 shouldn't be necessary -->
+		<Setter Property="DatePicker.FontWeight" Value="Normal" />
+		<Setter Property="DatePicker.FontStyle" Value="Normal" />
+		<Setter Property="DatePicker.FontSize" Value="12" />
+	</Style>
+
+</ResourceDictionary>

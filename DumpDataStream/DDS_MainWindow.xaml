@@ -1,0 +1,146 @@
+﻿<Window x:Class="DumpDataStream.DDS_MainWindow"
+		Title="Data Stream Dump" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:DumpDataStream"
+		mc:Ignorable="d"
+		Icon="CMC_App.ico"
+
+		Initialized="Window_Initialized"
+		Loaded="Window_Loaded"
+		Closing="Window_Closing"
+		Height="200" Width="500">
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<!-- http://stackoverflow.com/questions/1652189/accessing-resources-in-xaml-across-projects-dlls -->
+				<ResourceDictionary Source="Styles.xaml"/>
+
+				<!-- Constants and Binding Converters -->
+				<ResourceDictionary  Source="Converters.xaml"/>
+				
+				<ResourceDictionary>
+
+					<local:DataConverter x:Key="DataConverter" />
+
+					<Style x:Key="ListViewStyle" >
+						<!-- BasedOn="{StaticResource LabelStyle}"> -->
+						
+						<Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
+						<Setter Property="Control.VerticalAlignment" Value="Stretch"/>
+						<Setter Property="ListView.SelectionMode" Value="Single"/>
+						<Setter Property="Control.MinHeight" Value="20"/>
+					</Style>
+
+					<Style x:Key="TextStyle">
+						<Setter Property="Control.FontSize" Value="12" />
+						<Setter Property="Control.FontWeight" Value="Normal" />
+						<Setter Property="Control.FontStyle" Value="Normal" />
+						<Setter Property="FrameworkElement.Margin" Value="4" />
+						<!--
+				<Setter Property="Control.FontFamily" Value="Comic Sans MS" />
+				-->
+					</Style>
+
+					<Style x:Key="SmallButtonStyle" BasedOn="{StaticResource TextStyle}">
+						<Setter Property="Control.FontSize" Value="10" />
+						<Setter Property="Control.FontWeight" Value="Normal" />
+						<Setter Property="Control.FontStyle" Value="Normal" />
+						<Setter Property="FrameworkElement.Margin" Value="8,4" />
+						<Setter Property="Control.Padding" Value="10,4" />
+					</Style>
+
+
+				</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+		
+		<StackPanel Grid.Row="0"
+				Orientation="Horizontal">
+			
+			<Label Content="Selected File:" 
+				VerticalAlignment="Center"/>
+			
+			<TextBox Text="{Binding SelectedFilename}"
+				MinWidth="60"
+				VerticalContentAlignment="Center"
+				VerticalAlignment="Center"/>
+
+			<Button Content="Reload" 
+				VerticalAlignment="Center" 
+				Command="{Binding ReloadCommand}"/>
+			
+			<Button Content="Browse" 
+				VerticalAlignment="Center" 
+				Command="{Binding BrowseCommand}"/>
+		</StackPanel>
+
+		<ListView Grid.Row="1"
+			ItemsSource="{Binding DataItemSource}"
+			Style="{StaticResource ListViewStyle}">
+
+			<ListView.View>
+				<GridView>
+					<GridViewColumn Header="Interval" 
+						HeaderContainerStyle="{StaticResource HeaderStyle}"
+						DisplayMemberBinding="{Binding Interval, StringFormat=D}"/>
+
+					<GridViewColumn  Header="RecordType"
+						HeaderContainerStyle="{StaticResource HeaderStyle}"
+						DisplayMemberBinding="{Binding RecordType}"/>
+
+					<GridViewColumn Header="Length"
+						HeaderContainerStyle="{StaticResource HeaderStyle}"
+						DisplayMemberBinding="{Binding Length, StringFormat=D}"/>
+
+					<GridViewColumn Header="Data"
+						HeaderContainerStyle="{StaticResource HeaderStyle}"
+						DisplayMemberBinding="{Binding Data,
+							Converter={StaticResource DataConverter}}"/>
+
+				</GridView>
+			</ListView.View>
+			
+			<ListView.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Browse for file"
+						Command="{Binding BrowseCommand}"/>
+					
+					<MenuItem Header="Reload Selected File"
+						Command="{Binding ReloadCommand}"/>
+
+					<MenuItem Header="Save Report To File"
+						Command="{Binding SaveReportToFileCommand}"/>
+				</ContextMenu>
+			</ListView.ContextMenu>
+		</ListView>
+
+		<!-- left- and right-aligned Status bars -->
+		<StatusBar Grid.Row="2" 
+				HorizontalAlignment="Left" 
+				VerticalAlignment="Center" >
+			
+			<StatusBarItem >
+				<TextBlock Text="{Binding Summary}" 
+					VerticalAlignment="Center" />
+			</StatusBarItem>
+		</StatusBar>
+
+		<StatusBar Grid.Row="2" 
+				HorizontalAlignment="Right" 
+				VerticalAlignment="Center" >
+
+		</StatusBar>
+	</Grid>
+</Window>

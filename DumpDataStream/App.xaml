@@ -1,0 +1,9 @@
+﻿<Application x:Class="DumpDataStream.App"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:local="clr-namespace:DumpDataStream"
+			 StartupUri="DDS_MainWindow.xaml">
+	<Application.Resources>
+		 
+	</Application.Resources>
+</Application>
