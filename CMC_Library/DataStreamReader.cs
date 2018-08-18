@@ -78,7 +78,7 @@ namespace CMC_Library
 
 		#endregion
 
-		#region // Read Commmands vs Data ////////////////////////////////////
+		#region // Read Commmands vs Data /////////////////////////////////////
 
 		public Encoding UTF8 = System.Text.Encoding.UTF8;
 

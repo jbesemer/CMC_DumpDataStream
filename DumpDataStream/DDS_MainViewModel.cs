@@ -62,7 +62,7 @@ namespace DumpDataStream
 
 		#endregion
 
-		#region // DataItemSource & related ///////////////////////////////////
+		#region // DataItemSource & DataSelectedItem //////////////////////////
 
 		private List<DataStreamRecord> dataItemSource;
 		public List<DataStreamRecord> DataItemSource
@@ -75,6 +75,27 @@ namespace DumpDataStream
 					RecordCount = value.Count;
 				}
 			}
+		}
+
+		private DataStreamRecord dataSelectedItem;
+		public DataStreamRecord DataSelectedItem
+		{
+			get { return dataSelectedItem; }
+			set
+			{
+				if( OnPropertyChanged( ref dataSelectedItem, value ) )
+				{
+				}
+			}
+		}
+
+		#endregion
+
+		#region // Summary & related //////////////////////////////////////////
+
+		public string Summary
+		{
+			get { return $"{SelectedFilename} v{FileVersion} {FileSize} bytes {RecordCount} rows"; }
 		}
 
 		public int recordCount;
@@ -130,11 +151,6 @@ namespace DumpDataStream
 			}
 		}
 
-		public string Summary
-		{
-			get { return $"{SelectedFilename} v{FileVersion} {FileSize} bytes {RecordCount} rows"; }
-		}
-
 		#endregion
 
 		// Commands ///////////////////////////////////////////////////
@@ -176,7 +192,7 @@ namespace DumpDataStream
 				AddExtension = true,
 			};
 
-			if( dlg.ShowDialog() == true )
+			if( dlg.ShowDialog().Value == true )
 			{
 				SelectedPathname = dlg.FileName;
 				FilterIndex = dlg.FilterIndex;

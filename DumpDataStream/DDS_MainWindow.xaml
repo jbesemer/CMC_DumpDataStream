@@ -53,7 +53,6 @@
 						<Setter Property="Control.Padding" Value="10,4" />
 					</Style>
 
-
 				</ResourceDictionary>
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
@@ -88,6 +87,7 @@
 
 		<ListView Grid.Row="1"
 			ItemsSource="{Binding DataItemSource}"
+			SelectedItem="{Binding DataSelectedItem}"
 			Style="{StaticResource ListViewStyle}">
 
 			<ListView.View>
