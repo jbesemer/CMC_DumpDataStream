@@ -1,0 +1,45 @@
+c# generally (.cs files)
+
+	differences from C++
+		different object model (like Java, unlike C++)
+		minor syntactic differences
+
+	types: class, interface, enum, struct
+	Properties vs. fields
+	Generic types
+	Enumerators, foreach statement
+	using statement, IDisposable
+	exception handling
+		try/catch/finally
+		throw
+	Debug.Writeline()
+	string interpolation $"extended {string} syntax"
+
+WPF
+	basic UI paradigm
+		view (.xaml files) + code behind (.cs files),
+		partial classes
+
+	MVVM
+		INPC
+		Bindings
+		Converters
+
+	Window Class
+		Window.Resources,
+		ResourceDictionaries
+		Window Elements
+		Templates
+		Styles
+
+Key .Net Libraries:
+	System.Collections, .Generic
+	System.LINQ
+	System.IO
+	System.Threading, & .Tasks
+
+Useful SharedLibrary components
+App startup/shutdown
+Properties.Settings
+
+Wrike API
