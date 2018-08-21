@@ -17,8 +17,7 @@ c# generally (.cs files)
 
 WPF
 	basic UI paradigm
-		view (.xaml files) + code behind (.cs files),
-		partial classes
+		view (.xaml files) + code behind (.cs files) // partial classes
 
 	MVVM
 		INPC
@@ -26,9 +25,9 @@ WPF
 		Converters
 
 	Window Class
+		Window Elements
 		Window.Resources,
 		ResourceDictionaries
-		Window Elements
 		Templates
 		Styles
 
@@ -36,17 +35,16 @@ Key .Net Libraries:
 	System.Collections, .Generic
 	System.LINQ
 	System.IO
-	System.Threading, & .Tasks
+	System.Threading (old style), & .Tasks (new Async)
+
+Wrike API
+System.Net;
+System.Net.Http;
+	OAth protocol?
+	HttpClient
+	Json objects
 
 Useful SharedLibrary components
 App startup/shutdown
 Properties.Settings
-
-Wrike API
-using System.Net;
-using System.Net.Http;
-	OAth protocol
-	HttpClient
-	Json objects
-
 
