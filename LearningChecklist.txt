@@ -19,7 +19,8 @@ WPF
 	basic UI paradigm
 		view (.xaml files) + code behind (.cs files) // partial classes
 
-	MVVM
+	MVVM paradigm
+		window.xaml + window.cs + windowViewModel.cs
 		INPC
 		Bindings
 		Converters
