@@ -23,24 +23,32 @@ WPF
 		window.xaml + window.cs + windowViewModel.cs
 		INPC
 		Bindings
+		Commands
 		Converters
 
 	Window Class
 		Window Elements
-		Window.Resources,
+			Grid, StackPanel, GroupBox, ListView, TabControl/TabItem, etc.
+			Label, TextBlock, TextBox, Button, CheckBox, ComboBox, etc
+
+		Window.Resources
 		ResourceDictionaries
+		ContextMenu/MenuItem
 		Templates
 		Styles
 
-Key .Net Libraries:
+	UserControl
+	DependencyProperty
+	ICollectionView
+
+Key .Net Libraries and classes:
 	System.Collections, .Generic
 	System.LINQ
 	System.IO
 	System.Threading (old style), & .Tasks (new Async)
 
 Wrike API
-System.Net;
-System.Net.Http;
+System.Net, System.Net.Http
 	OAth protocol?
 	HttpClient
 	Json objects
